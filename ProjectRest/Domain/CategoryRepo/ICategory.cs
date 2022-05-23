@@ -8,6 +8,6 @@ namespace ProjectRest.Domain.CategoryRepo
 {
    public interface ICategory:IGenericRepository<Category>
    {
-    
+     
    }
 }
