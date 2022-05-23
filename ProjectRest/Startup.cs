@@ -52,6 +52,6 @@ namespace ProjectRest
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "post API V1");
             });
-        }
+        } 
     }
 }
