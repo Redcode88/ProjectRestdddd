@@ -16,7 +16,7 @@ namespace ProjectRest.Controllers
     {
         private readonly ShopDataContext _context;
        
-        public CategoryController(ShopDataContext context, CategoryRepository _c)
+        public CategoryController(ShopDataContext context)
         {
             _context = context;
         }
@@ -63,7 +63,7 @@ namespace ProjectRest.Controllers
         [HttpPost]
         public IActionResult DeleteCategory([FromBody] int? Id)
         {
-            var Record = _context.Categories.Where(s => s.Id == Id).FirstOrDefault();
+            var Record = _context.Categories.Where(s => s.CategoryId == Id).FirstOrDefault();
             CategoryRepository c = new CategoryRepository(_context);
             if (Record == null)
             {

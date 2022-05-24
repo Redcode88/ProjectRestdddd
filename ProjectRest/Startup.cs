@@ -34,6 +34,7 @@ namespace ProjectRest
     
             services.AddDbContext<ShopDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ShopDatabase")));
             services.AddScoped<CategoryRepository, CategoryRepository>();
+            services.AddScoped<ProductRepository, ProductRepository>();
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1",  new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Project Rest", Version = "V1" });
             });

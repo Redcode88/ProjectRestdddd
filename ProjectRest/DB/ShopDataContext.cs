@@ -23,11 +23,11 @@ namespace ProjectRest.DB
             modelBuilder.Entity<Category>().HasData(
                 new Category
                 {
-                    Id = 1,
+                    CategoryId = 1,
                     Name = "Mobile"
                 },
                new Category {
-                   Id = 2,
+                   CategoryId = 2,
                    Name = "Clothes"
                }
                 
@@ -37,7 +37,7 @@ namespace ProjectRest.DB
 
                 new Product
                 {
-                    Id = 1,
+                    CategoryId = 1,
                     ProductId = 1,
                     Price = 1150,
                     ProductName = "IPhone x",
@@ -46,7 +46,7 @@ namespace ProjectRest.DB
 
                   new Product
                   {
-                      Id = 2,
+                      CategoryId = 2,
                       ProductId = 2,
                       Price = 150,
                       ProductName = "T-shirs Lacoste",
