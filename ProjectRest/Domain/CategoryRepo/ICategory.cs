@@ -1,4 +1,5 @@
-﻿using ProjectRest.Entity;
+﻿using ProjectRest.DTO;
+using ProjectRest.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,6 @@ namespace ProjectRest.Domain.CategoryRepo
 {
    public interface ICategory:IGenericRepository<Category>
    {
-     
+       
    }
 }

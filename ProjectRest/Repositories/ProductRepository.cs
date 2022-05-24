@@ -58,6 +58,22 @@ namespace ProjectRest.Repositories
              return _context.Products.Find(Id);
         }
 
+        public IQueryable<ProductVM> GetProducts()
+        {
+            var res = from p in _context.Products
+                      join c in _context.Categories on p.CategoryId equals c.CategoryId
+                      select new ProductVM
+                      {
+                          ProductId = p.ProductId,
+                          ProductName = p.ProductName,
+                          Price = p.Price,
+                          Unit = p.Unit,
+                          CategoryId = c.CategoryId,
+                          Name = c.Name,
+                      };
+            return res;
+        }
+
         public void Remove(Product entity)
         {
             _context.Products.Remove(entity);

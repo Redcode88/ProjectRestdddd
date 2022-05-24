@@ -33,8 +33,20 @@ namespace ProjectRest.Controllers
 
         }
 
+        [Route("GetProductAsList")]
+        [HttpGet]
+        public IActionResult GetProductAsList()
+        {
+            ProductRepository pr = new ProductRepository(_context);
+            var data = pr.GetProducts();
+            if (data == null)
+            {
+                return BadRequest("There's No data on Product Table");
+            }
+            return Ok(data);
 
-
+            
+        }
 
 
     }

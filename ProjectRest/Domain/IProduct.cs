@@ -1,4 +1,5 @@
 ﻿using ProjectRest.Domain;
+using ProjectRest.DTO;
 using ProjectRest.Entity;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace ProjectRest.Repositories
 {
     public interface IProduct: IGenericRepository<Product>
     {
-
-
+        //to show Query using join on link viewmodel
+        IQueryable<ProductVM> GetProducts();
     }
 }
