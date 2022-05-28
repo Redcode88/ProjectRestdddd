@@ -85,5 +85,13 @@ namespace ProjectRest.Repositories
             _context.Products.RemoveRange(entitys);
             _context.SaveChanges();
         }
+
+        public Product Update(int id,Product entity)
+        {
+            var Product = _context.Products.Where(p => p.ProductId == id).FirstOrDefault();
+            _context.Entry(Product).State = EntityState.Modified;
+            _context.SaveChanges();
+            return Product;
+        }
     }
 }

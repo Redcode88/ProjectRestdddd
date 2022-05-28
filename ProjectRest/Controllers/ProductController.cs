@@ -75,6 +75,21 @@ namespace ProjectRest.Controllers
             pr.Remove(ProductId);
             return Ok(new string("Product Delete Done"));
         }
+        //we need update this ....
+        [Route("UpdateProduct")]
+        [HttpPost]
+        public IActionResult UpdateProduct([FromQuery] int id,Product entity)
+        {
+            ProductRepository pr = new ProductRepository(_context);
+            if (id == 0)
+            {
+                return BadRequest();
+            }
+            pr.Update(id,entity);
+            return Ok(new string("Product Update Done"));
+        }
+
+
 
     }
 }

@@ -12,5 +12,6 @@ namespace ProjectRest.Repositories
     {
         //to show Query using join on link viewmodel
         IQueryable<ProductVM> GetProducts();
+        Product Update(int id,Product entity);
     }
 }
