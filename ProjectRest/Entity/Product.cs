@@ -17,5 +17,6 @@ namespace ProjectRest.Entity
         [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+        public virtual ICollection<ProductImage> ProductImages { get; set; }
     }
 }

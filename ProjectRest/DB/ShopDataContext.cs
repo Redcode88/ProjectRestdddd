@@ -16,6 +16,7 @@ namespace ProjectRest.DB
         // tables on DataBase
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductImage>  ProductImages { get; set; }
         //Create Dummy Data When DataBase firstMigration
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

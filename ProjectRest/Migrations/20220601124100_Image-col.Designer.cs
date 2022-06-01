@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectRest.DB;
 
 namespace ProjectRest.Migrations
 {
     [DbContext(typeof(ShopDataContext))]
-    partial class ShopDataContextModelSnapshot : ModelSnapshot
+    [Migration("20220601124100_Image-col")]
+    partial class Imagecol
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,6 +54,8 @@ namespace ProjectRest.Migrations
 
                     b.Property<int>("CategoryId");
 
+                    b.Property<string>("ImagePath");
+
                     b.Property<float>("Price");
 
                     b.Property<string>("ProductName");
@@ -83,36 +87,11 @@ namespace ProjectRest.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ProjectRest.Entity.ProductImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ImageUrl");
-
-                    b.Property<int>("ProductId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductImages");
-                });
-
             modelBuilder.Entity("ProjectRest.Entity.Product", b =>
                 {
                     b.HasOne("ProjectRest.Entity.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ProjectRest.Entity.ProductImage", b =>
-                {
-                    b.HasOne("ProjectRest.Entity.Product", "Product")
-                        .WithMany("ProductImages")
-                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

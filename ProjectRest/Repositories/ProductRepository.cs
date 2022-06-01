@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using ProjectRest.DB;
 using ProjectRest.DTO;
 using ProjectRest.Entity;
-
+using System.IO;
 namespace ProjectRest.Repositories
 {
     public class ProductRepository : IProduct
@@ -18,6 +19,13 @@ namespace ProjectRest.Repositories
         }
         public void Add(Product entity)
         {
+
+
+
+            //var folderName = Path.Combine("Resources","Image");
+            //var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+            
+           
             _context.Add(entity);
             _context.SaveChanges();
         }
